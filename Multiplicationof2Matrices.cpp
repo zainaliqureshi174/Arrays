@@ -5,65 +5,65 @@ using namespace std;
 
 int main()
 {
+	int sum = 0;
+	int Array1[4][4];
+	int Array2[4][4];
+	int Resultant[4][4];
+	cout << "Enter the numbers in a 3x4 Matrix 1: \n";
 
-int m1 = 0, n1 = 0, m2 = 0, n2 = 0; 
-
-cout << "This program multiply 2 matrices. Enter the order and entries of both matrices. NOTE!! col of 1st and rows of 2nd matrix must be same\n";
-
-while (true){
-
-	cout <<"Enter Order of 1st matrix (m x n):\n";
-	cin >> m1 >> n1;
-	cout <<"Enter Order of 2nd matrix (m x n):\n";
-	cin >> m2 >> n2;
-
-	if (n1 == m2)
-		break;
-	else 
-	cout << "NOTE!! col of 1st and rows of 2nd matrix must be same\n";
-}
-
-int matrix1[m1][n1], matrix2[m2][n2];
-
-	cout <<"Enter the entries of matrix 1:\n";
-	
-	for (int i = 0; i < m1; i++)
+	for (int i = 0; i < 4; i++)
 	{
-		for (int j = 0; j < n1; j++)
+		for (int j = 0; j < 4; j++)
 		{
-			cin >> matrix1[i][j];
+			cin >> Array1[i][j];
 		}
 	}
 
-	cout <<"Enter the entries of matrix 2:\n";
-	for (int i = 0; i < m2; i++)
+	cout << "Enter the numbers in a 4x3 Matrix 2: \n";
+
+	for (int i = 0; i < 4; i++)
 	{
-		for (int j = 0; j < n2; j++)
+		for (int j = 0; j < 4; j++)
 		{
-			cin >> matrix2[i][j];
+			cin >> Array2[i][j];
 		}
 	}
 
+	cout << "Now I will Multiply Martrix 1 with Matrix 2\n";
+	cout << "\nPROCESSING....\n\n";
 
-	cout <<"Your matrix 1 is:\n";
-	for (int i = 0; i < m1; i++)
+	int add = 0;
+
+	for (int i = 0; i < 4; i++)
 	{
-		for (int j = 0; j < n1; j++)
+		for (int j = 0; j < 4; j++)
 		{
-			cout << matrix1[i][j] << " ";
+			Resultant[i][j] = 0;
+			for (int k = 0; k < 4; k++)
+			{
+				Resultant[i][j] += Array1[i][k] * Array2[k][j];
+			}
 		}
-		cout << endl;
 	}
 
-
-	cout <<"Your matrix 2 is:\n";
-	for (int i = 0; i < m2; i++)
+	for (int i = 0; i < 4; i++)
 	{
-		for (int j = 0; j < n2; j++)
+		for (int j = 0; j < 4; j++)
 		{
-			cout << matrix2[i][j] << " ";
+			cout << Resultant[i][j] << " ";
 		}
 		cout << endl;
 	}
+
+	for (int i = 0; i < 4; i++)
+	{
+		for (int j = 0; j < 4; j++)
+		{
+			sum += Resultant[i][j];
+		}
+	}
+
+	cout << "Sum of Matrix: " << sum << endl;
+
 return 0;
 }
